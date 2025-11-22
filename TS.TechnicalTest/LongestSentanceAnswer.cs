@@ -5,6 +5,42 @@ public class LongestSentanceAnswer
 {
     public static int Solution(string s)
     {
-        throw new NotImplementedException("Not completed yet");
+        var sentences = GetListOfSentences(s);
+        int counter = 0;
+
+        if(sentences.Count == 0)
+        {
+            return counter;
+        }
+
+        foreach(var sentence in sentences)
+        {
+            var words = sentence.Split(" ");
+            var wordlenth = words.Length - 1;
+            if (wordlenth > counter)
+            {
+                counter = wordlenth;
+            }
+        }
+        return counter;
+    }
+
+    static private List<string> GetListOfSentences(string sentence)
+    {
+        List<string> result = [];
+        if (string.IsNullOrEmpty(sentence))
+        {
+            return result;
+        }
+
+        char delimiter = '.';
+        var sentences = sentence.Split(delimiter);
+        foreach (var sentenceRecord in sentences) {
+            if(!string.IsNullOrEmpty(sentenceRecord)) {
+                var cleanSentence = sentenceRecord.Replace("?","").Replace("!","");
+                result.Add(cleanSentence);
+            }
+        }
+        return result;
     }
 }
