@@ -6,7 +6,7 @@ public class DeepestPitAnswer
     {
         if (points == null || points.Length < 3)
         {
-            // We use three dimentions
+            // We use three dimension
             return -1;
         }
 
@@ -31,6 +31,7 @@ public class DeepestPitAnswer
             List<int> pointsInRange = [];
             bool crossGround = false;
 
+            // Find the next high point
             for (int r = i; r < points.Length; r++)
             {
                 pointsInRange.Add(points[r]);
@@ -50,7 +51,7 @@ public class DeepestPitAnswer
 
             int lowestArea = pointsInRange.Min();
 
-            // Calculate the potential depth at the current point
+            // Calculate the potential depth at the current area
             int currentDepth = Math.Min((leftMax-(lowestArea)),(rightMax-(lowestArea)));
 
             // Update the maximum depth found so far

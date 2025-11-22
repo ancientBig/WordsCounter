@@ -13,7 +13,8 @@ public class LongestSentanceAnswer
             return counter;
         }
 
-        foreach(var sentence in sentences)
+        // Assign the next maximum count
+        foreach (var sentence in sentences)
         {
             var words = sentence.Split(" ");
             var wordlenth = words.Length - 1;
@@ -25,6 +26,9 @@ public class LongestSentanceAnswer
         return counter;
     }
 
+    /**
+      param name="sentence" string on sentences.
+     */
     static private List<string> GetListOfSentences(string sentence)
     {
         List<string> result = [];
@@ -37,6 +41,7 @@ public class LongestSentanceAnswer
         var sentences = sentence.Split(delimiter);
         foreach (var sentenceRecord in sentences) {
             if(!string.IsNullOrEmpty(sentenceRecord)) {
+                //Remove the special character
                 var cleanSentence = sentenceRecord.Replace("?","").Replace("!","");
                 result.Add(cleanSentence);
             }
