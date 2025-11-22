@@ -20,16 +20,13 @@ public class DeepestPitAnswer
                 continue;
             }
             int leftMax = points[i];
-            
-            // If is Increasing then cut
-            if (i + 1 < points.Length)
+
+            // If is Increasing immediately, skip as this is a rising edge
+            if (i + 1 < points.Length && points[i + 1] > leftMax)
             {
-                if (points[i + 1] > leftMax)
-                {
-                    continue;
-                }
+                continue;
             }
-            
+
             int rightMax = 0;
             List<int> pointsInRange = [];
             bool crossGround = false;
